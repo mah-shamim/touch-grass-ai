@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    container_name: touchgrass-app
+    ports:
+      - "8081:80"
+    environment:
+      APP_ENV: ${APP_ENV:-local}
+      APP_DEBUG: ${APP_DEBUG:-true}
+      APP_URL: ${APP_URL:-http://localhost:8081}
+      DB_PATH: ${DB_PATH:-/var/www/html/storage/touchgrass.sqlite}
+      OLLAMA_URL: ${OLLAMA_URL:-http://ollama:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma3:4b}
+      AI_TIMEOUT: ${AI_TIMEOUT:-120}
+    volumes:
+      - app_storage:/var/www/html/storage
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: touchgrass-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  app_storage:
+  ollama_models:

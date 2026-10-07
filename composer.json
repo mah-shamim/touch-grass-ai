@@ -1,0 +1,8 @@
+{
+  "name": "touchgrass-ai/touchgrass-ai",
+  "description": "TouchGrass AI - local-first outdoor activity companion built with PHP 8.5 and open-weight AI.",
+  "type": "project",
+  "require": {"php": ">=8.5"},
+  "autoload": {"psr-4": {"TouchGrass\\": "app/"}},
+  "scripts": {"test": "php tests/run.php"}
+}

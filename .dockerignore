@@ -1,0 +1,8 @@
+.git
+.gitignore
+.env
+vendor
+storage/*.sqlite
+.idea
+.vscode
+*.zip

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 400"
+     width="400"
+     height="400"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Minimal geometric animation</title>
+  <desc id="desc">A geometric icon with a rotating square, pulsing circle, and orbiting dot.</desc>
+
+  <rect width="400" height="400" rx="32" fill="#f8fafc"/>
+
+  <!-- Static outer frame -->
+  <circle cx="200" cy="200" r="118"
+          fill="none" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- Rotating square -->
+  <rect x="132" y="132" width="136" height="136" rx="18"
+        fill="none" stroke="#334155" stroke-width="3">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 200 200"
+      to="360 200 200"
+      dur="18s"
+      repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Accent orbit -->
+  <circle cx="200" cy="200" r="82"
+          fill="none" stroke="#14b8a6" stroke-width="3"
+          stroke-dasharray="2 12" stroke-linecap="round"
+          transform="rotate(-24 200 200)"/>
+
+  <!-- Center pulse -->
+  <circle cx="200" cy="200" r="31" fill="#14b8a6">
+    <animate attributeName="r"
+             values="28;34;28"
+             dur="3s"
+             repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="200" cy="200" r="10" fill="#f8fafc"/>
+
+  <!-- Orbiting accent dot -->
+  <circle cx="200" cy="200" r="7" fill="#f97316">
+    <animateMotion
+      path="M 0,-118 A 118,118 0 1,1 0,118 A 118,118 0 1,1 0,-118"
+      dur="8s"
+      repeatCount="indefinite"/>
+  </circle>
+</svg>
